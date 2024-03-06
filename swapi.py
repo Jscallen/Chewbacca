@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+
 def get_star_wars_data(resource):
     base_url = "https://swapi.dev/api/"
     url = base_url + resource
@@ -8,10 +9,15 @@ def get_star_wars_data(resource):
         return response.json()
     else:
         return None
-def get_planets():
-    planets_data = get_star_wars_data("planets")
-    return planets_data['results']
-def main_planets():
-    planets = get_planets()
-    df = pd.DataFrame(planets)
+
+def get_starships():
+    starships_data = get_star_wars_data("starships")
+    return starships_data['results']
+
+def main():
+    starships = get_starships()
+    df = pd.DataFrame(starships)
     print(df)
+
+
+print(main())
