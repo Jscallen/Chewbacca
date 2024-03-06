@@ -19,6 +19,7 @@ def main():
     df = pd.DataFrame(starships)
     print(df)
 
+def get_star_wars_data_vehicles(resource):
 def get_star_wars_data_people(resource):
     base_url = "https://swapi.dev/api/"
     url = base_url + resource
@@ -27,6 +28,15 @@ def get_star_wars_data_people(resource):
         return response.json()
     else:
         return None
+
+def get_vehicles():
+    vehicles_data = get_star_wars_data_vehicles("vehicles")
+    return vehicles_data['results']
+
+def main_vehicles():
+    vehicles = get_vehicles()
+    df = pd.DataFrame(vehicles)
+    print(df)
 
 def get_people():
     people_data = get_star_wars_data_people("people")
