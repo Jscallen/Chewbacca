@@ -20,6 +20,7 @@ def main():
     print(df)
 
 def get_star_wars_data_vehicles(resource):
+def get_star_wars_data_people(resource):
     base_url = "https://swapi.dev/api/"
     url = base_url + resource
     response = requests.get(url)
@@ -36,3 +37,14 @@ def main_vehicles():
     vehicles = get_vehicles()
     df = pd.DataFrame(vehicles)
     print(df)
+
+def get_people():
+    people_data = get_star_wars_data_people("people")
+    return people_data['results']
+
+def main_people():
+    people = get_people()
+    df = pd.DataFrame(people)
+    print(df)
+
+main_people()
