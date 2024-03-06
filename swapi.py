@@ -20,4 +20,3 @@ def main():
     print(df)
 
 
-print(main())
