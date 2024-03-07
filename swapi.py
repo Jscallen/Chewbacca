@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 
 def get_star_wars_data(resource):
-    base_url = "https://swapi.dev/api/"
+    base_url = "https://www.swapi.tech/api/"
     url = base_url + resource
     response = requests.get(url)
     if response.status_code == 200:
@@ -20,8 +20,7 @@ def main():
     print(df)
 
 def get_star_wars_data_vehicles(resource):
-def get_star_wars_data_people(resource):
-    base_url = "https://swapi.dev/api/"
+    base_url = "https://www.swapi.tech/api/"
     url = base_url + resource
     response = requests.get(url)
     if response.status_code == 200:
@@ -37,6 +36,15 @@ def main_vehicles():
     vehicles = get_vehicles()
     df = pd.DataFrame(vehicles)
     print(df)
+
+def get_star_wars_data_people(resource):
+    base_url = "https://www.swapi.tech/api/"
+    url = base_url + resource
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return None
 
 def get_people():
     people_data = get_star_wars_data_people("people")
@@ -47,26 +55,8 @@ def main_people():
     df = pd.DataFrame(people)
     print(df)
 
-def get_star_wars_data_vehicles(resource):
-    base_url = "https://swapi.dev/api/"
-    url = base_url + resource
-    response = requests.get(url)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        return None
-
-def get_vehicles():
-    vehicles_data = get_star_wars_data_vehicles("vehicles")
-    return vehicles_data['results']
-
-def main_vehicles():
-    vehicles = get_vehicles()
-    df = pd.DataFrame(vehicles)
-    print(df)
-
-def get_star_wars_data(resource):
-    base_url = "https://swapi.dev/api/"
+def get_star_wars_data_planets(resource):
+    base_url = "https://www.swapi.tech/api/"
     url = base_url + resource
     response = requests.get(url)
     if response.status_code == 200:
